@@ -49,18 +49,23 @@
   });
 
   themeButton.addEventListener("click", () => {
-    const darkNow = body.dataset.mode !== "dark" && body.dataset.preset !== "graphite";
+    const darkNow = body.dataset.preset !== "graphite";
     if (darkNow) {
-      body.dataset.mode = "dark";
-      body.removeAttribute("data-preset");
+      body.dataset.preset = "graphite";
+      body.removeAttribute("data-mode");
       document.querySelectorAll(".theme-option").forEach((button) => {
         button.classList.remove("selected");
         button.setAttribute("aria-pressed", "false");
       });
       updateSwatches("graphite");
+      document.querySelectorAll("[data-preset]").forEach((button) => {
+        if (button.classList.contains("theme-option")) {
+          button.classList.toggle("selected", button.dataset.preset === "graphite");
+          button.setAttribute("aria-pressed", String(button.dataset.preset === "graphite"));
+        }
+      });
       themeGlyph.textContent = "☼";
     } else {
-      body.removeAttribute("data-mode");
       applyPreset("silver");
     }
   });
@@ -80,6 +85,9 @@
     button.addEventListener("click", () => {
       const radius = Number(button.dataset.radius);
       if (![6, 12, 18, 24].includes(radius)) return;
+      document.documentElement.style.setProperty("--radius-sm", radius + "px");
+      document.documentElement.style.setProperty("--radius-md", radius + "px");
+      document.documentElement.style.setProperty("--radius-lg", radius + "px");
       radiusDemo.style.borderRadius = radius + "px";
       document.querySelectorAll(".radius-choice").forEach((choice) => {
         const active = choice === button;
@@ -101,6 +109,9 @@
     const savedFont = localStorage.getItem("design-lab-font");
     if (savedPreset && presets[savedPreset]) applyPreset(savedPreset);
     else applyPreset("silver");
+    document.documentElement.style.setProperty("--radius-sm", "6px");
+    document.documentElement.style.setProperty("--radius-md", "6px");
+    document.documentElement.style.setProperty("--radius-lg", "6px");
     if (savedFont && ["system", "rounded", "serif", "mono", "song"].includes(savedFont)) {
       fontSelect.value = savedFont;
       body.dataset.font = savedFont;
