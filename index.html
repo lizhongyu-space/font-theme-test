@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>Font & Theme Test</title>
+  <!-- 引入样式文件:字体、主题颜色、侧栏、页面布局 -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- 左侧侧栏:点击菜单项没有反应,只有 About 是高亮状态 -->
+  <nav class="side">
+    <!-- 折叠/展开侧栏的按钮 -->
+    <button id="toggle">☰</button>
+    <!-- 菜单项:ltr 是折叠后显示的首字母,lbl 是展开后显示的名字 -->
+    <div class="item active"><span class="ltr">A</span><span class="lbl">About</span></div>
+    <div class="item"><span class="ltr">G</span><span class="lbl">Gallery</span></div>
+    <div class="item"><span class="ltr">P</span><span class="lbl">Postcrossing</span></div>
+    <div class="item"><span class="ltr">V</span><span class="lbl">Global View</span></div>
+    <div class="item"><span class="ltr">C</span><span class="lbl">Contact me</span></div>
+  </nav>
+
+  <!-- 右上角控制栏:字体下拉框 + 主题切换按钮 -->
+  <div class="bar">
+    <select id="fontSelect">
+      <option value="system-ui">System</option>
+      <option value="Georgia, serif">Georgia (衬线)</option>
+      <option value="'Courier New', monospace">Courier (等宽)</option>
+      <option value="'PingFang SC', sans-serif">苹方 PingFang</option>
+      <option value="'Songti SC', serif">宋体 Songti</option>
+    </select>
+    <button id="themeBtn">Light / Dark</button>
+  </div>
+
+  <!-- About 页面主体 -->
+  <main>
+    <!-- 头像 + 名字 -->
+    <div class="head"><div class="avatar">好好学习</div><h1>Hello 你好 123</h1></div>
+    <!-- 正文:两行示例文字,用来观察字体 -->
+    <p>The quick brown fox jumps over the lazy dog.</p>
+    <p>好好学习,天天向上。</p>
+    <!-- 底部签名 -->
+    <footer>Keep Exploring.</footer>
+  </main>
+
+  <!-- 引入脚本文件:主题、字体、侧栏折叠 -->
+  <script src="js/main.js"></script>
+</body>
+</html>

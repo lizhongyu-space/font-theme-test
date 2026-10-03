@@ -1,0 +1,36 @@
+/* 浅色主题的颜色(默认):页面背景、文字、强调色、侧栏背景、边框线 */
+:root { --bg: #f5f7fa; --text: #1f2933; --accent: #557fa8; --side: #eceff3; --line: #d5dbe2; }
+
+/* 深色主题的颜色:html 标签带有 data-theme="dark" 时生效 */
+[data-theme="dark"] { --bg: #1e2327; --text: #e4e8ec; --accent: #7fa6cc; --side: #252b30; --line: #3a424a; }
+
+/* 页面整体:背景和文字颜色取自上面的变量,切换主题时自动变化 */
+body { background: var(--bg); color: var(--text); font-family: system-ui; margin: 0; transition: .3s; }
+
+/* 左侧侧栏:固定在左边,右侧有一条边框线;折叠时变窄 */
+.side { position: fixed; top: 0; left: 0; bottom: 0; width: 200px; background: var(--side); border-right: 1px solid var(--line); padding: 16px 10px; box-sizing: border-box; transition: .3s; }
+.collapsed .side { width: 64px; }
+
+/* 侧栏按钮和菜单项的样式 */
+#toggle { background: none; border: 0; color: var(--text); font-size: 20px; cursor: pointer; margin-bottom: 16px; }
+.item { display: flex; gap: 12px; padding: 10px; border-radius: 8px; cursor: default; }
+.item.active { background: var(--bg); color: var(--accent); }
+.ltr { width: 20px; font-weight: bold; text-align: center; }
+
+/* 折叠时隐藏菜单项的完整名字,只留首字母 */
+.collapsed .lbl { display: none; }
+
+/* 右侧内容区:给侧栏让出位置,正文宽度最大 900px */
+main { margin-left: 200px; padding: 60px 40px; max-width: 900px; transition: .3s; }
+.collapsed main { margin-left: 64px; }
+
+/* 头像(圆形)和名字并排;标题用强调色 */
+.head { display: flex; align-items: center; gap: 16px; }
+.avatar { width: 56px; height: 56px; border-radius: 50%; background: var(--accent); color: #fff; display: grid; place-items: center; font-size: 11px; }
+h1 { color: var(--accent); }
+
+/* 底部签名 */
+footer { margin-top: 60px; opacity: .6; }
+
+/* 右上角控制栏的位置 */
+.bar { position: fixed; top: 16px; right: 16px; display: flex; gap: 8px; }
