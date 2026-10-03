@@ -5,6 +5,7 @@
   const themeGlyph = document.getElementById("themeGlyph");
   const fontSelect = document.getElementById("fontSelect");
   const sidebarToggle = document.getElementById("sidebarToggle");
+  const mobileMenuButton = document.getElementById("mobileMenuButton");
   const radiusDemo = document.getElementById("radiusDemo");
   const swatchLabels = {
     canvas: document.getElementById("canvasHex"),
@@ -76,9 +77,20 @@
   });
 
   sidebarToggle.addEventListener("click", () => {
+    if (window.matchMedia("(max-width: 760px)").matches) {
+      body.classList.remove("mobile-nav-open");
+      mobileMenuButton.setAttribute("aria-expanded", "false");
+      mobileMenuButton.setAttribute("aria-label", "Open navigation");
+      return;
+    }
     const collapsed = body.classList.toggle("sidebar-collapsed");
     sidebarToggle.setAttribute("aria-expanded", String(!collapsed));
     sidebarToggle.setAttribute("aria-label", collapsed ? "Expand navigation" : "Collapse navigation");
+  });
+  mobileMenuButton.addEventListener("click", () => {
+    const open = body.classList.toggle("mobile-nav-open");
+    mobileMenuButton.setAttribute("aria-expanded", String(open));
+    mobileMenuButton.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
   });
 
   document.querySelectorAll(".radius-choice").forEach((button) => {
@@ -101,6 +113,11 @@
     link.addEventListener("click", () => {
       document.querySelectorAll(".nav-item").forEach((item) => item.classList.remove("active"));
       link.classList.add("active");
+      if (window.matchMedia("(max-width: 760px)").matches) {
+        body.classList.remove("mobile-nav-open");
+        mobileMenuButton.setAttribute("aria-expanded", "false");
+        mobileMenuButton.setAttribute("aria-label", "Open navigation");
+      }
     });
   });
 
