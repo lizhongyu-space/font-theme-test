@@ -1,4 +1,6 @@
+//main.js
 // 主题切换:点按钮在 light 和 dark 之间切换,并记住选择
+
 const root = document.documentElement;
 root.dataset.theme = localStorage.getItem('theme') || 'light';
 document.getElementById('themeBtn').onclick = () => {
