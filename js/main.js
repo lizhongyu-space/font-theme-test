@@ -109,9 +109,9 @@
     const savedFont = localStorage.getItem("design-lab-font");
     if (savedPreset && presets[savedPreset]) applyPreset(savedPreset);
     else applyPreset("silver");
-    document.documentElement.style.setProperty("--radius-sm", "6px");
-    document.documentElement.style.setProperty("--radius-md", "6px");
-    document.documentElement.style.setProperty("--radius-lg", "6px");
+    document.documentElement.style.setProperty("--radius-sm", "12px");
+    document.documentElement.style.setProperty("--radius-md", "12px");
+    document.documentElement.style.setProperty("--radius-lg", "12px");
     if (savedFont && ["system", "rounded", "serif", "mono", "song"].includes(savedFont)) {
       fontSelect.value = savedFont;
       body.dataset.font = savedFont;
