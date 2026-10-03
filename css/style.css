@@ -13,9 +13,9 @@
   --success: #4e927b;
   --danger: #c76b70;
   --shadow: 0 8px 26px rgba(37, 56, 76, .055);
-  --radius-sm: 7px;
-  --radius-md: 12px;
-  --radius-lg: 18px;
+  --radius-sm: 6px;
+  --radius-md: 6px;
+  --radius-lg: 6px;
   --sidebar-width: 232px;
   --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
 }
@@ -277,3 +277,4 @@ body[data-preset="graphite"] .theme-option, body[data-preset="graphite"] .princi
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+/* Final system choice: 1px subtle borders across structural surfaces. */
