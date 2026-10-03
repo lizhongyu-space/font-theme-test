@@ -1,49 +1,169 @@
-<!-- index.html -->
-<!DOCTYPE html>
-<html lang="zh">
+<!doctype html>
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <title>Font & Theme Test</title>
-  <!-- 引入样式文件:字体、主题颜色、侧栏、页面布局 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Design Lab — Li Zhongyu</title>
+  <meta name="description" content="A private visual design lab for testing typography, color, spacing, components, and interaction patterns.">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!-- 左侧侧栏:点击菜单项没有反应,只有 About 是高亮状态 -->
-  <nav class="side">
-    <!-- 折叠/展开侧栏的按钮 -->
-    <button id="toggle">☰</button>
-    <!-- 菜单项:ltr 是折叠后显示的首字母,lbl 是展开后显示的名字 -->
-    <div class="item active"><span class="ltr">A</span><span class="lbl">About</span></div>
-    <div class="item"><span class="ltr">G</span><span class="lbl">Gallery</span></div>
-    <div class="item"><span class="ltr">P</span><span class="lbl">Postcrossing</span></div>
-    <div class="item"><span class="ltr">V</span><span class="lbl">Global View</span></div>
-    <div class="item"><span class="ltr">C</span><span class="lbl">Contact me</span></div>
-  </nav>
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="#top" aria-label="Design Lab home">
+      <span class="brand-mark">LZ</span>
+      <span class="brand-copy"><strong>Design Lab</strong><small>VISUAL SYSTEM 01</small></span>
+    </a>
+    <button class="sidebar-toggle" id="sidebarToggle" type="button" aria-label="Collapse navigation" aria-expanded="true">
+      <span class="toggle-glyph">☰</span><span class="nav-label">Collapse sidebar</span>
+    </button>
+    <div class="nav-caption nav-label">WORKSPACE</div>
+    <nav class="nav-list" aria-label="Design lab sections">
+      <a class="nav-item active" href="#overview"><span class="nav-icon">01</span><span class="nav-label">Overview</span></a>
+      <a class="nav-item" href="#type"><span class="nav-icon">Aa</span><span class="nav-label">Typography</span></a>
+      <a class="nav-item" href="#colors"><span class="nav-icon">◒</span><span class="nav-label">Color system</span></a>
+      <a class="nav-item" href="#components"><span class="nav-icon">▦</span><span class="nav-label">Components</span></a>
+      <a class="nav-item" href="#patterns"><span class="nav-icon">⌘</span><span class="nav-label">Page patterns</span></a>
+    </nav>
+    <div class="sidebar-bottom">
+      <span class="status-dot"></span><span class="nav-label">Independent test repo</span>
+    </div>
+  </aside>
 
-  <!-- 右上角控制栏:字体下拉框 + 主题切换按钮 -->
-  <div class="bar">
-    <select id="fontSelect">
-      <option value="system-ui">System</option>
-      <option value="Georgia, serif">Georgia (衬线)</option>
-      <option value="'Courier New', monospace">Courier (等宽)</option>
-      <option value="'PingFang SC', sans-serif">苹方 PingFang</option>
-      <option value="'Songti SC', serif">宋体 Songti</option>
-    </select>
-    <button id="themeBtn">Light / Dark</button>
-  </div>
+  <main class="main" id="top">
+    <header class="topbar">
+      <div class="breadcrumbs"><span>Workspace</span><span class="crumb-slash">/</span><strong>Design system</strong></div>
+      <div class="top-controls">
+        <label class="control-label" for="fontSelect">Typeface</label>
+        <select id="fontSelect" aria-label="Choose preview font">
+          <option value="system">System</option>
+          <option value="rounded">Rounded</option>
+          <option value="serif">Serif</option>
+          <option value="mono">Monospace</option>
+          <option value="song">Songti / Serif CJK</option>
+        </select>
+        <button class="icon-button" id="themeBtn" type="button" aria-label="Toggle dark mode" title="Toggle light / dark mode"><span id="themeGlyph">◐</span></button>
+      </div>
+    </header>
 
-  <!-- About 页面主体 -->
-  <main>
-    <!-- 头像 + 名字 -->
-    <div class="head"><div class="avatar">好好学习</div><h1>Hello 你好 123</h1></div>
-    <!-- 正文:两行示例文字,用来观察字体 -->
-    <p>The quick brown fox jumps over the lazy dog.</p>
-    <p>好好学习,天天向上。</p>
-    <!-- 底部签名 -->
-    <footer>Keep Exploring.</footer>
+    <section class="hero section-anchor" id="overview">
+      <div class="eyebrow"><span class="eyebrow-line"></span> DESIGN EXPLORATION <span class="eyebrow-number">001—005</span></div>
+      <h1>A quieter kind<br>of <span class="title-accent">clarity.</span></h1>
+      <p class="hero-copy">A small, isolated workspace for comparing typography, color, spacing and interface details before they reach the main website.</p>
+      <div class="hero-meta">
+        <span><i class="meta-dot"></i> Cold white · Silver gray · Blue</span>
+        <span>Last updated <strong>03 OCT 2026</strong></span>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="section-heading">
+        <div><div class="section-index">00 / FOUNDATION</div><h2>Design principles</h2></div>
+        <p>Simple rules that keep every page feeling like part of the same place.</p>
+      </div>
+      <div class="principle-grid">
+        <article class="principle-card"><span class="principle-number">01</span><h3>Quiet hierarchy</h3><p>Use size, weight and whitespace before adding decoration.</p><span class="principle-foot">TYPE · SPACE</span></article>
+        <article class="principle-card"><span class="principle-number">02</span><h3>Cool neutrals</h3><p>Let white, silver gray and a restrained blue do most of the work.</p><span class="principle-foot">COLOR · CONTRAST</span></article>
+        <article class="principle-card"><span class="principle-number">03</span><h3>Useful motion</h3><p>Keep transitions short, purposeful and easy to ignore.</p><span class="principle-foot">MOTION · FEEDBACK</span></article>
+      </div>
+    </section>
+
+    <section class="section-block section-anchor" id="type">
+      <div class="section-heading">
+        <div><div class="section-index">01 / TYPOGRAPHY</div><h2>Type in context</h2></div>
+        <p>Switch the typeface in the top bar to compare Chinese and Latin text together.</p>
+      </div>
+      <div class="type-specimen panel">
+        <div class="specimen-top"><span class="mini-label">DISPLAY / 48</span><span class="sample-tag">LIVE PREVIEW</span></div>
+        <div class="display-sample">Hello, Zhongyu.</div>
+        <div class="display-cn">你好，李中钰。</div>
+        <div class="specimen-rule"></div>
+        <div class="type-columns">
+          <div><span class="mini-label">BODY / 16</span><p class="body-sample">A personal archive of places, photographs, and small connections. Thoughtfully collected, simply presented.</p><p class="body-cn">记录去过的地方、拍下的照片，以及那些不经意建立的联系。</p></div>
+          <div class="font-notes"><span class="mini-label">TYPE SCALE</span><div class="scale-row"><span>Heading</span><strong>32 / 1.2</strong></div><div class="scale-row"><span>Subheading</span><strong>20 / 1.4</strong></div><div class="scale-row"><span>Body text</span><strong>16 / 1.75</strong></div><div class="scale-row"><span>Metadata</span><strong>12 / 1.5</strong></div></div>
+        </div>
+      </div>
+      <div class="font-comparison">
+        <article class="font-card"><span class="mini-label">A / SYSTEM</span><h3 class="font-system">A little more space.</h3><p class="font-system">The quick brown fox jumps over the lazy dog.</p><p class="font-system">清晰、均衡，适合正文与导航。</p></article>
+        <article class="font-card"><span class="mini-label">B / SERIF</span><h3 class="font-serif">A little more space.</h3><p class="font-serif">The quick brown fox jumps over the lazy dog.</p><p class="font-serif">更有书卷气，适合少量标题实验。</p></article>
+        <article class="font-card"><span class="mini-label">C / MONO</span><h3 class="font-mono">A little more space.</h3><p class="font-mono">The quick brown fox jumps over the lazy dog.</p><p class="font-mono">带有编辑器气质，适合短标签和编号。</p></article>
+      </div>
+    </section>
+
+    <section class="section-block section-anchor" id="colors">
+      <div class="section-heading">
+        <div><div class="section-index">02 / COLOR SYSTEM</div><h2>Color & surface</h2></div>
+        <p>Compare neutral surfaces, accent tones, borders and depth. Choose a preset to preview the full page.</p>
+      </div>
+      <div class="theme-options">
+        <button class="theme-option selected" data-preset="silver" type="button"><span class="theme-preview silver-preview"><i></i><i></i><i></i></span><strong>Silver blue</strong><small>Cool · Editorial</small></button>
+        <button class="theme-option" data-preset="paper" type="button"><span class="theme-preview paper-preview"><i></i><i></i><i></i></span><strong>Warm paper</strong><small>Soft · Literary</small></button>
+        <button class="theme-option" data-preset="graphite" type="button"><span class="theme-preview graphite-preview"><i></i><i></i><i></i></span><strong>Graphite</strong><small>Dark · Focused</small></button>
+        <button class="theme-option" data-preset="blue" type="button"><span class="theme-preview blue-preview"><i></i><i></i><i></i></span><strong>Blue note</strong><small>Bright · Crisp</small></button>
+      </div>
+      <div class="swatch-grid">
+        <div class="swatch"><div class="swatch-color swatch-bg"></div><div><strong>Canvas</strong><small id="canvasHex">#F5F7FA</small></div></div>
+        <div class="swatch"><div class="swatch-color swatch-surface"></div><div><strong>Surface</strong><small id="surfaceHex">#FFFFFF</small></div></div>
+        <div class="swatch"><div class="swatch-color swatch-text"></div><div><strong>Text</strong><small id="textHex">#202A35</small></div></div>
+        <div class="swatch"><div class="swatch-color swatch-accent"></div><div><strong>Accent</strong><small id="accentHex">#3977B8</small></div></div>
+        <div class="swatch"><div class="swatch-color swatch-border"></div><div><strong>Border</strong><small id="borderHex">#DDE3EA</small></div></div>
+      </div>
+      <div class="surface-demo panel">
+        <div class="surface-demo-copy"><span class="mini-label">SURFACE / ELEVATION 01</span><h3>Less shadow. More structure.</h3><p>Prefer thin borders and subtle surface changes. Use shadows only when an element needs to feel raised above the page.</p></div>
+        <div class="surface-stack"><div class="stack-card stack-back">Secondary surface</div><div class="stack-card stack-front">Primary surface <span>↗</span></div></div>
+      </div>
+    </section>
+
+    <section class="section-block section-anchor" id="components">
+      <div class="section-heading">
+        <div><div class="section-index">03 / COMPONENTS</div><h2>Small details, consistently done</h2></div>
+        <p>Test interactive states and component shapes without touching the production website.</p>
+      </div>
+      <div class="panel component-panel">
+        <div class="component-row"><div class="component-description"><strong>Buttons</strong><span>Primary, secondary and quiet actions</span></div><div class="component-examples"><button class="btn btn-primary" type="button">Save changes <span>↗</span></button><button class="btn btn-secondary" type="button">Cancel</button><button class="btn btn-quiet" type="button">Learn more</button></div></div>
+        <div class="component-row"><div class="component-description"><strong>Labels & status</strong><span>Subtle emphasis for categories and state</span></div><div class="component-examples"><span class="pill pill-blue">Selected</span><span class="pill pill-neutral">Draft</span><span class="status-label"><i class="meta-dot"></i> Connected</span><span class="pill pill-send">Send</span><span class="pill pill-receive">Receive</span></div></div>
+        <div class="component-row"><div class="component-description"><strong>Inputs</strong><span>Clear boundaries and visible focus</span></div><div class="component-examples input-examples"><input type="text" placeholder="Search the collection…" aria-label="Search the collection"><select aria-label="Filter by category"><option>All categories</option><option>Photography</option><option>Postcards</option></select></div></div>
+        <div class="component-row"><div class="component-description"><strong>Corner radius</strong><span>Choose a radius scale for the preview</span></div><div class="component-examples radius-controls"><button type="button" class="radius-choice" data-radius="6">6</button><button type="button" class="radius-choice selected" data-radius="12">12</button><button type="button" class="radius-choice" data-radius="18">18</button><button type="button" class="radius-choice" data-radius="24">24</button><span class="radius-demo" id="radiusDemo">Preview surface</span></div></div>
+      </div>
+      <div class="component-grid">
+        <article class="mini-card"><div class="mini-card-top"><span class="mini-label">CARD / DEFAULT</span><span class="card-more">···</span></div><div class="mini-card-icon">Aa</div><h3>Quiet by design</h3><p>Use spacing and type hierarchy to make content feel organized.</p><a href="#type">Explore typography <span>→</span></a></article>
+        <article class="mini-card"><div class="mini-card-top"><span class="mini-label">CARD / SELECTED</span><span class="selection-mark">✓</span></div><div class="mini-card-icon icon-blue">↗</div><h3>A clear active state</h3><p>A gentle blue tint can show selection without overpowering the content.</p><a href="#colors">Explore color <span>→</span></a></article>
+      </div>
+    </section>
+
+    <section class="section-block section-anchor" id="patterns">
+      <div class="section-heading">
+        <div><div class="section-index">04 / PAGE PATTERNS</div><h2>Patterns for the real site</h2></div>
+        <p>Small previews inspired by the Gallery and Postcrossing sections of the personal website.</p>
+      </div>
+      <div class="pattern-grid">
+        <article class="pattern-card">
+          <div class="pattern-heading"><div><span class="mini-label">GALLERY / 01</span><h3>Photo collection</h3></div><a href="#patterns" class="text-link">View all ↗</a></div>
+          <div class="photo-grid">
+            <div class="photo-tile photo-one"><span>01</span></div><div class="photo-tile photo-two"><span>02</span></div><div class="photo-tile photo-three"><span>03</span></div>
+          </div>
+          <div class="photo-caption"><span>Quiet places</span><small>12 photographs</small></div>
+          <p class="pattern-note">Natural image ratios · gentle hover · metadata stays secondary</p>
+        </article>
+        <article class="pattern-card">
+          <div class="pattern-heading"><div><span class="mini-label">POSTCROSSING / 02</span><h3>Exchange log</h3></div><a href="#patterns" class="text-link">Open map ↗</a></div>
+          <div class="map-preview" aria-label="Illustrative postcard connection map">
+            <div class="map-land land-a"></div><div class="map-land land-b"></div><div class="map-land land-c"></div>
+            <svg viewBox="0 0 320 145" preserveAspectRatio="none" aria-hidden="true"><path d="M44 92 Q120 8 176 66" class="route route-send"></path><path d="M176 66 Q230 124 280 42" class="route route-receive"></path><path d="M44 92 Q180 132 280 42" class="route route-send"></path></svg>
+            <span class="map-pin pin-a"></span><span class="map-pin pin-b"></span><span class="map-pin pin-c"></span>
+            <div class="map-legend"><span><i class="legend-blue"></i>Sent</span><span><i class="legend-red"></i>Received</span></div>
+          </div>
+          <div class="table-preview"><div class="table-head"><span>RECIPIENT</span><span>COUNTRY</span><span>TYPE</span></div><div class="table-line"><span>DE-4821</span><span>Germany</span><span><i class="table-pill sent">Send</i></span></div><div class="table-line"><span>JP-1930</span><span>Japan</span><span><i class="table-pill received">Receive</i></span></div></div>
+          <p class="pattern-note">Map and table share selection · color-coded routes · quiet metadata</p>
+        </article>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div><span class="brand-mark footer-mark">LZ</span><span>Design Lab <span class="footer-muted">/ independent experiments</span></span></div>
+      <span class="footer-note">NOT CONNECTED TO GITHUB PAGES</span>
+    </footer>
   </main>
-
-  <!-- 引入脚本文件:主题、字体、侧栏折叠 -->
   <script src="js/main.js"></script>
 </body>
 </html>
