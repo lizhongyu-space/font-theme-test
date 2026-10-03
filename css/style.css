@@ -13,9 +13,9 @@
   --success: #4e927b;
   --danger: #c76b70;
   --shadow: 0 8px 26px rgba(37, 56, 76, .055);
-  --radius-sm: 6px;
-  --radius-md: 6px;
-  --radius-lg: 6px;
+  --radius-sm: 12px;
+  --radius-md: 12px;
+  --radius-lg: 12px;
   --sidebar-width: 232px;
   --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
 }
